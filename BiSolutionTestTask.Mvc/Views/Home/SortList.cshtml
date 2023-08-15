@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="SortList" method="post" asp-controller="Home">
+    <label>список</label>
+    <textarea placeholder="1 2 3 4 6" name="listInStr"></textarea>
+    <input type="submit" value="отправить" />
+</form>
+
+@if (ViewData["result"] is not null)
+{
+    <p>результат=
+        @foreach(var e in ViewData["result"] as IEnumerable<int>){
+            <span>@e </span>
+        }
+       </p>
+}
