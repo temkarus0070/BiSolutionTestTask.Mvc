@@ -1,4 +1,4 @@
-using BiSolutionTestTask.Mvc;
+using BiSolutionTestTask.Mvc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

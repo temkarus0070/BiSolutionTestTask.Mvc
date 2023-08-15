@@ -1,4 +1,5 @@
 ﻿using BiSolutionTestTask.Mvc.Models;
+using BiSolutionTestTask.Mvc.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
@@ -35,11 +36,11 @@ namespace BiSolutionTestTask.Mvc.Controllers
         }
 
         [HttpGet]
-        public IActionResult checkPalindrome() { return View(); }
+        public IActionResult CheckPalindrome() { return View(); }
 
 
         [HttpPost]
-        public async Task<IActionResult> checkPalindrome([FromForm] string str)
+        public async Task<IActionResult> CheckPalindrome([FromForm] string str)
         {
             bool res = await _appService.IsPalindrome(str);
             ViewData["result"] = res;
@@ -47,11 +48,11 @@ namespace BiSolutionTestTask.Mvc.Controllers
         }
 
         [HttpGet]
-        public IActionResult sortList() { return View(); }
+        public IActionResult SortList() { return View(); }
 
 
         [HttpPost]
-        public async Task<IActionResult> sortList([FromForm] string listInStr)
+        public async Task<IActionResult> SortList([FromForm] string listInStr)
         {
             List<int> intArray = listInStr.Trim().Split(" ").Select(x => int.Parse(x)).ToList();
             IEnumerable<int> res = await _appService.SortList(intArray);
